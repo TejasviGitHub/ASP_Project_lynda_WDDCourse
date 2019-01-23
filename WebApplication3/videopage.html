@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="CSS/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        /* Style the tab */
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        span {
+            display: inline-block;
+            margin-left: 30px;
+            width: 150px;
+            height: 40px;
+            background: #FFFFFF;
+            border-bottom: 2px solid #8A2BE2;
+            font: 16px/40px "Times New Roman";
+            text-align: center;
+            color: #000000;
+        }
+
+            span.current,
+            span:hover {
+                background: #8A2BE2;
+                color: #FFFFFF;
+            }
+
+        .hd {
+            height: 40px;
+        }
+
+        .bd {
+            height: 400px;
+            padding: 10px 30px;
+            font-size: 50px;
+        }
+
+            .bd > div {
+                display: none;
+            }
+
+            .bd .show {
+                display: block;
+            }
+
+        .tab {
+            float: left;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            width: 30%;
+            height: 300px;
+        }
+
+            /* Style the buttons inside the tab */
+            .tab button {
+                display: block;
+                background-color: inherit;
+                color: black;
+                padding: 22px 16px;
+                width: 100%;
+                border: none;
+                outline: none;
+                text-align: left;
+                cursor: pointer;
+                transition: 0.3s;
+                font-size: 17px;
+            }
+
+                /* Change background color of buttons on hover */
+                .tab button:hover {
+                    background-color: azure;
+                }
+
+                /* Create an active/current "tab button" class */
+                .tab button.active {
+                    background-color: #ccc;
+                }
+
+        /* Style the tab content */
+        .tabcontent {
+            float: left;
+            padding: 0px 12px;
+            border: 1px solid #ccc;
+            width: 70%;
+            border-left: none;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">LOGO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Chapter 1 - Introduction</button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')">Chapter 2 - HTML </button>
+        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Chapter 3 - Creating webpage</button>
+    </div>
+    <div id="London" class="tabcontent">
+        <video controls width="1000" height="400">
+            <source src="Videos/004 Introdution.mp4" type="video/mp4" />
+            <track src="Subtitles/ch1en.vtt" kind="subtitles" srclang="en" label="English" default />
+            <track src="Videos/Spanish.vtt" kind="subtitles" srclang="es" label="Spanish" />
+            <track src="Videos/Arabic.vtt" kind="subtitles" srclang="es" label="Arabic" />
+            <track src="Subtitles/ch1frnch.vtt" kind="subtitles" srclang="es" label="French" />
+        </video>
+    </div>
+    <div id="Paris" class="tabcontent">
+        <video controls width="1000" height="400">
+            <source src="video/005 What is HTML.mp4" type="video/mp4" />
+            <track src="Subtitles/ch2en.vtt" kind="subtitles" srclang="en" label="English" default />
+            <track src="Subtitles/ch2spn.vtt" kind="subtitles" srclang="es" label="Spanish" />
+            <track src="video/Arabic.vtt" kind="subtitles" srclang="es" label="Arabic" />
+            <track src="#" kind="subtitles" srclang="es" label="French" />
+        </video>
+    </div>
+    <div id="Tokyo" class="tabcontent">
+        <video controls width="1000" height="400">
+            <source src="video/006 Create A Web Page.mp4" type="video/mp4" />
+            <track src="Subtitles/ch3en.vtt" kind="subtitles" srclang="en" label="English" default />
+            <track src="Subtitles/ch3spn.vtt" kind="subtitles" srclang="es" label="Spanish" />
+            <track src="video/Arabic.vtt" kind="subtitles" srclang="es" label="Arabic" />
+            <track src="Subtitles/ch1frnch.vtt" kind="subtitles" srclang="es" label="French" />
+        </video>
+    </div>
+    <div class="tab_box">
+        <div class="hd">
+            <span class="current">Transcript</span>
+            <span>Course introduction</span>
+            <span>Professor introduction</span>
+            <span>Course materials</span>
+            <span>Help</span>
+        </div>
+        <div class="bd">
+            <div class="show">CC: English/Indian/Chinese</div>
+            <div>Course introduction:xxx</div>
+            <div>Professor introduction:Dr.xxx</div>
+            <div>Course materials:slides</div>
+            <div>Help/recommendation</div>
+        </div>
+    </div>
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+
+       
+    </script>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.min.js"></script>
+    <script src="slider.js"></script>
+</body>
+</html>

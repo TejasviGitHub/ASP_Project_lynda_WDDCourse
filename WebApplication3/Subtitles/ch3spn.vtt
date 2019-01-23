@@ -1,0 +1,64 @@
+﻿WEBVTT FILE
+
+
+1
+00:00:04.000 --> 00:00:09.000 D:vertical A:start
+En esta conferencia quiero crear una página web simple con estructura HTML.
+
+2
+00:00:11.000 --> 00:00:18.000 D:vertical A:start
+Abrí mi editor de texto. Mi editor de texto es texto sublime.
+
+3
+00:00:20.000 --> 00:00:29.000 D:vertical A:start
+Ir al archivo guardar como crear una nueva carpeta mi sitio web
+
+4
+00:00:34.000 --> 00:00:48.000 D:vertical A:start
+Y crea un archivo: first page page.html save
+
+5
+00:00:51.000 --> 00:01:23.000 D:vertical A:start
+¡De acuerdo! Comience a crear <! DOCTYPE html> luego tenemos <html> y luego cerramos la etiqueta
+
+6
+00:01:24.000 --> 00:01:31.000 D:vertical A:start
+Después de HTML tenemos etiqueta principal. Cerrar la etiqueta de la cabeza.
+
+7
+00:01:32.000 --> 00:01:38.000 D:vertical A:start
+Dentro de la etiqueta de la cabeza tenemos la etiqueta del título.
+
+8
+00:01:43.000 --> 00:01:47.000 D:vertical A:start
+Primera pagina web
+
+9
+00:01:53.000 --> 00:01:57.000 D:vertical A:start
+Después de la etiqueta de la cabeza tenemos etiqueta del cuerpo
+
+10
+00:02:02.000 --> 00:02:10.000 D:vertical A:start
+Puedes escribir algún texto en la etiqueta del cuerpo. Algún texto está aquí.
+
+11
+00:02:20.000 --> 00:02:24.000 D:vertical A:start
+De acuerdo. Ahora quiero abrir. Ir al mywebsite y mi primera página web.
+
+12
+00:02:33.000 --> 00:02:43.000 D:vertical A:start
+No pasó nada. ¿Por qué? Porque debería guardar este archivo. Yo no lo guardo.
+
+13
+00:02:44.000 --> 00:02:49.000 D:vertical A:start
+Guarda y ahora actualiza. ¡Ahí tienes!
+
+14
+00:02:50.000 --> 00:02:56.000 D:vertical A:start
+¡Felicidades! Usted creó una página web simple con estructura HTML.
+
+15
+00:02:57.000 --> 00:03:01.000 D:vertical A:start
+Te veré en la próxima conferencia. ¡Buena suerte!
+
+

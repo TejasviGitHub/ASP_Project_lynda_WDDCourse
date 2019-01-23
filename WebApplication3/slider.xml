@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+  <Ad>
+    <ImageUrl>Images/coursera.png</ImageUrl>
+    <AlternateText>HTML5</AlternateText>
+    <Width>200px</Width>
+    <Height>200px</Height>
+  </Ad>
+  <Ad>
+    <ImageUrl>Images/Udemy-banner.jpg</ImageUrl>
+    <AlternateText>CSS3</AlternateText>
+    <Width>200px</Width>
+    <Height>200px</Height>
+  </Ad>
+</Advertisements>

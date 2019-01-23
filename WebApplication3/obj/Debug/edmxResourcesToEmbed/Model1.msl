@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SelfLearningSystemsModelStoreContainer" CdmEntityContainer="SelfLearningSystemsEntities1">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="SelfLearningSystemsModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Cat_Id" ColumnName="Cat_Id" />
+          <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chapters">
+      <EntityTypeMapping TypeName="SelfLearningSystemsModel.Chapter">
+        <MappingFragment StoreEntitySet="Chapter">
+          <ScalarProperty Name="Ch_Id" ColumnName="Ch_Id" />
+          <ScalarProperty Name="Ch_Name" ColumnName="Ch_Name" />
+          <ScalarProperty Name="Video" ColumnName="Video" />
+          <ScalarProperty Name="Tran_Id" ColumnName="Tran_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="SelfLearningSystemsModel.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="C_Id" ColumnName="C_Id" />
+          <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+          <ScalarProperty Name="C_Length" ColumnName="C_Length" />
+          <ScalarProperty Name="Cat_Id" ColumnName="Cat_Id" />
+          <ScalarProperty Name="Ch_Id" ColumnName="Ch_Id" />
+          <ScalarProperty Name="Inst_Id" ColumnName="Inst_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instructors">
+      <EntityTypeMapping TypeName="SelfLearningSystemsModel.Instructor">
+        <MappingFragment StoreEntitySet="Instructor">
+          <ScalarProperty Name="Inst_Id" ColumnName="Inst_Id" />
+          <ScalarProperty Name="Inst_Name" ColumnName="Inst_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transcripts">
+      <EntityTypeMapping TypeName="SelfLearningSystemsModel.Transcript">
+        <MappingFragment StoreEntitySet="Transcript">
+          <ScalarProperty Name="Tran_Id" ColumnName="Tran_Id" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="SelfLearningSystemsModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllCourses" FunctionName="SelfLearningSystemsModel.Store.spGetAllCourses">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SelfLearningSystemsModel.spGetAllCourses_Result">
+          <ScalarProperty Name="C_Id" ColumnName="C_Id" />
+          <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+          <ScalarProperty Name="C_Length" ColumnName="C_Length" />
+          <ScalarProperty Name="Cat_Id" ColumnName="Cat_Id" />
+          <ScalarProperty Name="Ch_Id" ColumnName="Ch_Id" />
+          <ScalarProperty Name="Inst_Id" ColumnName="Inst_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetCourseName" FunctionName="SelfLearningSystemsModel.Store.spGetCourseName" />
+    <FunctionImportMapping FunctionImportName="spGetCourses" FunctionName="SelfLearningSystemsModel.Store.spGetCourses">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SelfLearningSystemsModel.spGetCourses_Result">
+          <ScalarProperty Name="C_Id" ColumnName="C_Id" />
+          <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+          <ScalarProperty Name="C_Length" ColumnName="C_Length" />
+          <ScalarProperty Name="Cat_Id" ColumnName="Cat_Id" />
+          <ScalarProperty Name="Ch_Id" ColumnName="Ch_Id" />
+          <ScalarProperty Name="Inst_Id" ColumnName="Inst_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

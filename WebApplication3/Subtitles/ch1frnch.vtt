@@ -1,0 +1,67 @@
+﻿WEBVTT FILE
+
+
+1
+00:00:02.000 --> 00:00:03.000 D:vertical A:start
+HTML 5 Introduction
+
+2
+00:00:06.000 --> 00:00:07.000 D:vertical A:start
+Qu'est ce que le HTML?
+
+
+3
+00:00:10.000 --> 00:00:16.000 D:vertical A:start
+HTML est un langage de balisage permettant de décrire des documents Web.
+
+4
+00:00:18.000 --> 00:00:22.000 D:vertical A:start
+HTML signifie Hyper Text Markup Language
+
+5
+00:00:26.000 --> 00:00:29.000 D:vertical A:start
+Un langage de balisage est un ensemble de balises de balisage
+
+6
+00:00:32.000 --> 00:00:37.000 D:vertical A:start
+Les documents HTML sont décrits par des balises HTML
+
+7
+00:00:40.000 --> 00:00:46.000 D:vertical A:start
+Chaque balise HTML décrit un contenu de document différent
+
+8
+00:00:49.000 --> 00:00:54.000 D:vertical A:start
+Qu'est-ce que <! DOCTYPE HTML> en HTML?
+
+9
+00:00:56.000 --> 00:01:03.000 D:vertical A:start
+La déclaration DOCTYPE définit le type de document en HTML
+
+10
+00:01:06.000 --> 00:01:14.000 D:vertical A:start
+La déclaration <! DOCTYPE> aide le navigateur à afficher correctement une page Web.
+
+11
+00:01:16.000 --> 00:01:20.000 D:vertical A:start
+Il existe différents types de documents sur le Web.
+
+12
+00:01:22.000 --> 00:01:30.000 D:vertical A:start
+Pour afficher un document correctement, le navigateur doit connaître à la fois le type et la version.
+
+13
+00:01:31.000 --> 00:01:34.000 D:vertical A:start
+Type et version
+
+14
+00:01:37.000 --> 00:01:47.000 D:vertical A:start
+La déclaration de doctype n'est pas sensible à la casse. Tous les cas sont acceptables.
+
+15
+00:01:50.000 --> 00:01:59.000 D:vertical A:start
+Dans cette section, je travaillerai sur des listes, des images, des tableaux, du formatage de texte, etc.
+
+16
+00:02:00.000 --> 00:02:11.000 D:vertical A:start
+À la fin de cette section, je travaillerai sur un projet et vous créerez un simple site Web sur le sport avec HTML.

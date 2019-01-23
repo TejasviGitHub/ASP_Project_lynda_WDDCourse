@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a64af6a7bcee485dac4821c5c2fcd39d" Name="Diagram1">
+        <EntityTypeShape EntityType="SelfLearningSystemsModel.Category" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SelfLearningSystemsModel.Chapter" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SelfLearningSystemsModel.Course" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SelfLearningSystemsModel.Instructor" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="SelfLearningSystemsModel.Transcript" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SelfLearningSystemsModel.User" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="SelfLearningSystemsModel.FK__Course__Cat_Id__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="SelfLearningSystemsModel.FK__Chapter__Tran_Id__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="SelfLearningSystemsModel.FK__Course__Ch_Id__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="SelfLearningSystemsModel.FK__Course__Inst_Id__440B1D61" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

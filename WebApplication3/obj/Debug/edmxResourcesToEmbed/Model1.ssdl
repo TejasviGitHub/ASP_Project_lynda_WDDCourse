@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SelfLearningSystemsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Cat_Id" />
+    </Key>
+    <Property Name="Cat_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cat_Name" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Chapter">
+    <Key>
+      <PropertyRef Name="Ch_Id" />
+    </Key>
+    <Property Name="Ch_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ch_Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Video" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Tran_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="C_Id" />
+    </Key>
+    <Property Name="C_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="C_Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="C_Length" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Cat_Id" Type="int" Nullable="false" />
+    <Property Name="Ch_Id" Type="int" Nullable="false" />
+    <Property Name="Inst_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Instructor">
+    <Key>
+      <PropertyRef Name="Inst_Id" />
+    </Key>
+    <Property Name="Inst_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Inst_Name" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transcript">
+    <Key>
+      <PropertyRef Name="Tran_Id" />
+    </Key>
+    <Property Name="Tran_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descriptions" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Chapter__Tran_Id__3F466844">
+    <End Role="Transcript" Type="Self.Transcript" Multiplicity="1" />
+    <End Role="Chapter" Type="Self.Chapter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transcript">
+        <PropertyRef Name="Tran_Id" />
+      </Principal>
+      <Dependent Role="Chapter">
+        <PropertyRef Name="Tran_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Course__Cat_Id__4222D4EF">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Course" Type="Self.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Cat_Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="Cat_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Course__Ch_Id__4316F928">
+    <End Role="Chapter" Type="Self.Chapter" Multiplicity="1" />
+    <End Role="Course" Type="Self.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chapter">
+        <PropertyRef Name="Ch_Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="Ch_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Course__Inst_Id__440B1D61">
+    <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+    <End Role="Course" Type="Self.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="Inst_Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="Inst_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="spGetAllCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spGetCourseName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spGetCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseName" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="SelfLearningSystemsModelStoreContainer">
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chapter" EntityType="Self.Chapter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Instructor" EntityType="Self.Instructor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transcript" EntityType="Self.Transcript" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Chapter__Tran_Id__3F466844" Association="Self.FK__Chapter__Tran_Id__3F466844">
+      <End Role="Transcript" EntitySet="Transcript" />
+      <End Role="Chapter" EntitySet="Chapter" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Course__Cat_Id__4222D4EF" Association="Self.FK__Course__Cat_Id__4222D4EF">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Course" EntitySet="Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Course__Ch_Id__4316F928" Association="Self.FK__Course__Ch_Id__4316F928">
+      <End Role="Chapter" EntitySet="Chapter" />
+      <End Role="Course" EntitySet="Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Course__Inst_Id__440B1D61" Association="Self.FK__Course__Inst_Id__440B1D61">
+      <End Role="Instructor" EntitySet="Instructor" />
+      <End Role="Course" EntitySet="Course" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

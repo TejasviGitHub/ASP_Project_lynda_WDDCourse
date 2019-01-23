@@ -1,0 +1,64 @@
+﻿WEBVTT FILE
+
+
+1
+00:00:04.000 --> 00:00:09.000 D:vertical A:start
+In this lecture I want to create a simple web page with HTML structure.
+
+2
+00:00:11.000 --> 00:00:18.000 D:vertical A:start
+I opened my text editor. My text editor is sublime text.
+
+3
+00:00:20.000 --> 00:00:29.000 D:vertical A:start
+Go to the file save as create a new folder my website
+
+4
+00:00:34.000 --> 00:00:48.000 D:vertical A:start
+And create a file- first web page.html save
+
+5
+00:00:51.000 --> 00:01:23.000 D:vertical A:start
+Ok! Start creating <!DOCTYPE html> then we have <html> and then close the tag
+
+6
+00:01:24.000 --> 00:01:31.000 D:vertical A:start
+After HTML we have head tag. Close head tag.
+
+7
+00:01:32.000 --> 00:01:38.000 D:vertical A:start
+Inside of head tag we have title tag.
+
+8
+00:01:43.000 --> 00:01:47.000 D:vertical A:start
+First webpage
+
+9
+00:01:53.000 --> 00:01:57.000 D:vertical A:start
+After head tag we have body tag
+
+10
+00:02:02.000 --> 00:02:10.000 D:vertical A:start
+you can write some text in body tag. Some text is here.
+
+11
+00:02:20.000 --> 00:02:24.000 D:vertical A:start
+Ok. Now I want to open. Go to the mywebsite and my first webpage.
+
+12
+00:02:33.000 --> 00:02:43.000 D:vertical A:start
+Nothing happened. Why? Because I should save this file. I don't save it.
+
+13
+00:02:44.000 --> 00:02:49.000 D:vertical A:start
+Save and now refresh. There you go!
+
+14
+00:02:50.000 --> 00:02:56.000 D:vertical A:start
+Congratulations! You created a simple web page with HTML structure.
+
+15
+00:02:57.000 --> 00:03:01.000 D:vertical A:start
+I will see you in next lecture. Goodluck!
+
+

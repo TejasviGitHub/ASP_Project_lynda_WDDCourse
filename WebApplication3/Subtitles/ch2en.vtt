@@ -1,0 +1,119 @@
+﻿WEBVTT FILE
+
+
+1
+00:00:04.000 --> 00:00:05.000 D:vertical A:start
+What is HTML?
+
+2
+00:00:06.000 --> 00:00:24.000 D:vertical A:start
+Hypertext Markup Language, a standardized system for tagging text files to achieve font, color, graphic, and 
+hyperlink effects on World Wide Web pages.
+
+3
+00:00:26.000 --> 00:00:37.000 D:vertical A:start
+I go to example.com right click and click on view page source.
+
+4
+00:00:40.000 --> 00:00:48.000 D:vertical A:start
+First introduce doctype i.e HTML and then start with html tag.
+
+4
+00:00:50.000 --> 00:00:58.000 D:vertical A:start
+Less than and greater than is tag and close HTML tag with slash
+
+5
+00:01:00.000 --> 00:01:08.000 D:vertical A:start
+What is head tag? The head tag is a container for all head elements.
+
+6
+00:01:08.000 --> 00:01:13.000 D:vertical A:start
+The head element can include a title for a document.
+
+7
+00:01:13.000 --> 00:01:17.000 D:vertical A:start
+A script, styles, meta information and more.
+
+8
+00:01:20.000 --> 00:01:22.000 D:vertical A:start
+What is title tag?
+
+9
+00:01:23.000 --> 00:01:28.000 D:vertical A:start
+The title of your page and show on title of your page on web browser
+
+10
+00:01:29.000 --> 00:01:38.000 D:vertical A:start
+i.e example domain and show this title on my example browser domain.
+
+11
+00:01:42.000 --> 00:01:51.000 D:vertical A:start
+meta charset or character set i.e utf-8
+
+12
+00:01:52.000 --> 00:02:02.000 D:vertical A:start
+i.e is a standard if you want to more about you can search on google. Depends on yourself
+
+13
+00:02:04.000 --> 00:02:09.000 D:vertical A:start
+The second meta tag is content type
+
+14
+00:02:10.000 --> 00:02:16.000 D:vertical A:start
+and what is content type i.e text html
+
+15
+00:02:21.000 --> 00:02:31.000 D:vertical A:start
+The third meta tag is viewport and how to show your page on devices
+
+16
+00:02:32.000 --> 00:02:35.000 D:vertical A:start
+the content width-devices
+
+17
+00:02:41.000 --> 00:02:47.000 D:vertical A:start
+The style tag is about css or cascading style sheets
+
+18
+00:02:49.000 --> 00:02:56.000 D:vertical A:start
+That you will know more about it in next sections
+
+19
+00:03:00.000 --> 00:03:13.000 D:vertical A:start
+Css is styling your web page for example to change color, text, font, etc.
+
+20
+00:03:14.000 --> 00:03:20.000 D:vertical A:start
+What is the body tag. The body element contains all the elements.
+
+21
+00:03:21.000 --> 00:03:31.000 D:vertical A:start
+of HTML document such as hyperlinks, images, tables and lists, etc.
+
+22
+00:03:34.000 --> 00:03:44.000 D:vertical A:start
+What is div tag? The div defines a division or a section in a HTML document
+
+23
+00:03:45.000 --> 00:03:51.000 D:vertical A:start
+We can have different sections or divsions that we should use div tag
+
+24
+00:03:52.000 --> 00:03:57.000 D:vertical A:start
+Start with div tag and close with div tag
+
+25
+00:04:01.000 --> 00:04:09.000 D:vertical A:start
+What is h1 tag? That is a header tag. This is main header page.
+
+26
+00:04:12.000 --> 00:04:22.000 D:vertical A:start
+What is p tag? p tag is paragraph and you can write some text in your page.
+
+27
+00:04:23.000 --> 00:04:27.000 D:vertical A:start
+Write some text in your page.
+
+28
+00:04:28.000 --> 00:04:38.000 D:vertical A:start
+Ok this is a structure of a webpage. I will see you in next lecture. Good luck.

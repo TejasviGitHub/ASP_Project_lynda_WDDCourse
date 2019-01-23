@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SelfLearningSystemsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Cat_Id" />
+          </Key>
+          <Property Name="Cat_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cat_Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Chapter">
+          <Key>
+            <PropertyRef Name="Ch_Id" />
+          </Key>
+          <Property Name="Ch_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ch_Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Video" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Tran_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="C_Id" />
+          </Key>
+          <Property Name="C_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="C_Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="C_Length" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Cat_Id" Type="int" Nullable="false" />
+          <Property Name="Ch_Id" Type="int" Nullable="false" />
+          <Property Name="Inst_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Instructor">
+          <Key>
+            <PropertyRef Name="Inst_Id" />
+          </Key>
+          <Property Name="Inst_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Inst_Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transcript">
+          <Key>
+            <PropertyRef Name="Tran_Id" />
+          </Key>
+          <Property Name="Tran_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descriptions" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="EmailId" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Chapter__Tran_Id__3F466844">
+          <End Role="Transcript" Type="Self.Transcript" Multiplicity="1" />
+          <End Role="Chapter" Type="Self.Chapter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transcript">
+              <PropertyRef Name="Tran_Id" />
+            </Principal>
+            <Dependent Role="Chapter">
+              <PropertyRef Name="Tran_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__Cat_Id__4222D4EF">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Cat_Id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="Cat_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__Ch_Id__4316F928">
+          <End Role="Chapter" Type="Self.Chapter" Multiplicity="1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chapter">
+              <PropertyRef Name="Ch_Id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="Ch_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__Inst_Id__440B1D61">
+          <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instructor">
+              <PropertyRef Name="Inst_Id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="Inst_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spGetAllCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spGetCourseName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spGetCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseName" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="SelfLearningSystemsModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chapter" EntityType="Self.Chapter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Instructor" EntityType="Self.Instructor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transcript" EntityType="Self.Transcript" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Chapter__Tran_Id__3F466844" Association="Self.FK__Chapter__Tran_Id__3F466844">
+            <End Role="Transcript" EntitySet="Transcript" />
+            <End Role="Chapter" EntitySet="Chapter" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__Cat_Id__4222D4EF" Association="Self.FK__Course__Cat_Id__4222D4EF">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__Ch_Id__4316F928" Association="Self.FK__Course__Ch_Id__4316F928">
+            <End Role="Chapter" EntitySet="Chapter" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__Inst_Id__440B1D61" Association="Self.FK__Course__Inst_Id__440B1D61">
+            <End Role="Instructor" EntitySet="Instructor" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SelfLearningSystemsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Cat_Id" />
+          </Key>
+          <Property Name="Cat_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cat_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Courses" Relationship="Self.FK__Course__Cat_Id__4222D4EF" FromRole="Category" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="Chapter">
+          <Key>
+            <PropertyRef Name="Ch_Id" />
+          </Key>
+          <Property Name="Ch_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ch_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Video" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tran_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Transcript" Relationship="Self.FK__Chapter__Tran_Id__3F466844" FromRole="Chapter" ToRole="Transcript" />
+          <NavigationProperty Name="Courses" Relationship="Self.FK__Course__Ch_Id__4316F928" FromRole="Chapter" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="C_Id" />
+          </Key>
+          <Property Name="C_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_Length" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cat_Id" Type="Int32" Nullable="false" />
+          <Property Name="Ch_Id" Type="Int32" Nullable="false" />
+          <Property Name="Inst_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Course__Cat_Id__4222D4EF" FromRole="Course" ToRole="Category" />
+          <NavigationProperty Name="Chapter" Relationship="Self.FK__Course__Ch_Id__4316F928" FromRole="Course" ToRole="Chapter" />
+          <NavigationProperty Name="Instructor" Relationship="Self.FK__Course__Inst_Id__440B1D61" FromRole="Course" ToRole="Instructor" />
+        </EntityType>
+        <EntityType Name="Instructor">
+          <Key>
+            <PropertyRef Name="Inst_Id" />
+          </Key>
+          <Property Name="Inst_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Inst_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Courses" Relationship="Self.FK__Course__Inst_Id__440B1D61" FromRole="Instructor" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="Transcript">
+          <Key>
+            <PropertyRef Name="Tran_Id" />
+          </Key>
+          <Property Name="Tran_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descriptions" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Chapters" Relationship="Self.FK__Chapter__Tran_Id__3F466844" FromRole="Transcript" ToRole="Chapter" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Course__Cat_Id__4222D4EF">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Cat_Id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="Cat_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Chapter__Tran_Id__3F466844">
+          <End Role="Transcript" Type="Self.Transcript" Multiplicity="1" />
+          <End Role="Chapter" Type="Self.Chapter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transcript">
+              <PropertyRef Name="Tran_Id" />
+            </Principal>
+            <Dependent Role="Chapter">
+              <PropertyRef Name="Tran_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__Ch_Id__4316F928">
+          <End Role="Chapter" Type="Self.Chapter" Multiplicity="1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chapter">
+              <PropertyRef Name="Ch_Id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="Ch_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Course__Inst_Id__440B1D61">
+          <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instructor">
+              <PropertyRef Name="Inst_Id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="Inst_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SelfLearningSystemsEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Chapters" EntityType="Self.Chapter" />
+          <EntitySet Name="Courses" EntityType="Self.Course" />
+          <EntitySet Name="Instructors" EntityType="Self.Instructor" />
+          <EntitySet Name="Transcripts" EntityType="Self.Transcript" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Course__Cat_Id__4222D4EF" Association="Self.FK__Course__Cat_Id__4222D4EF">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Chapter__Tran_Id__3F466844" Association="Self.FK__Chapter__Tran_Id__3F466844">
+            <End Role="Transcript" EntitySet="Transcripts" />
+            <End Role="Chapter" EntitySet="Chapters" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__Ch_Id__4316F928" Association="Self.FK__Course__Ch_Id__4316F928">
+            <End Role="Chapter" EntitySet="Chapters" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Course__Inst_Id__440B1D61" Association="Self.FK__Course__Inst_Id__440B1D61">
+            <End Role="Instructor" EntitySet="Instructors" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <FunctionImport Name="spGetAllCourses" ReturnType="Collection(SelfLearningSystemsModel.spGetAllCourses_Result)">
+            <Parameter Name="CourseName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetCourseName" ReturnType="Collection(String)">
+            <Parameter Name="CourseName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetCourses" ReturnType="Collection(SelfLearningSystemsModel.spGetCourses_Result)">
+            <Parameter Name="CourseName" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="spGetAllCourses_Result">
+          <Property Type="Int32" Name="C_Id" Nullable="false" />
+          <Property Type="String" Name="C_Name" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="C_Length" Nullable="false" MaxLength="255" />
+          <Property Type="Int32" Name="Cat_Id" Nullable="false" />
+          <Property Type="Int32" Name="Ch_Id" Nullable="false" />
+          <Property Type="Int32" Name="Inst_Id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spGetCourses_Result">
+          <Property Type="Int32" Name="C_Id" Nullable="false" />
+          <Property Type="String" Name="C_Name" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="C_Length" Nullable="false" MaxLength="255" />
+          <Property Type="Int32" Name="Cat_Id" Nullable="false" />
+          <Property Type="Int32" Name="Ch_Id" Nullable="false" />
+          <Property Type="Int32" Name="Inst_Id" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SelfLearningSystemsModelStoreContainer" CdmEntityContainer="SelfLearningSystemsEntities1">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="SelfLearningSystemsModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Cat_Id" ColumnName="Cat_Id" />
+                <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chapters">
+            <EntityTypeMapping TypeName="SelfLearningSystemsModel.Chapter">
+              <MappingFragment StoreEntitySet="Chapter">
+                <ScalarProperty Name="Ch_Id" ColumnName="Ch_Id" />
+                <ScalarProperty Name="Ch_Name" ColumnName="Ch_Name" />
+                <ScalarProperty Name="Video" ColumnName="Video" />
+                <ScalarProperty Name="Tran_Id" ColumnName="Tran_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="SelfLearningSystemsModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="C_Id" ColumnName="C_Id" />
+                <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+                <ScalarProperty Name="C_Length" ColumnName="C_Length" />
+                <ScalarProperty Name="Cat_Id" ColumnName="Cat_Id" />
+                <ScalarProperty Name="Ch_Id" ColumnName="Ch_Id" />
+                <ScalarProperty Name="Inst_Id" ColumnName="Inst_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instructors">
+            <EntityTypeMapping TypeName="SelfLearningSystemsModel.Instructor">
+              <MappingFragment StoreEntitySet="Instructor">
+                <ScalarProperty Name="Inst_Id" ColumnName="Inst_Id" />
+                <ScalarProperty Name="Inst_Name" ColumnName="Inst_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transcripts">
+            <EntityTypeMapping TypeName="SelfLearningSystemsModel.Transcript">
+              <MappingFragment StoreEntitySet="Transcript">
+                <ScalarProperty Name="Tran_Id" ColumnName="Tran_Id" />
+                <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SelfLearningSystemsModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spGetAllCourses" FunctionName="SelfLearningSystemsModel.Store.spGetAllCourses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SelfLearningSystemsModel.spGetAllCourses_Result">
+                <ScalarProperty Name="C_Id" ColumnName="C_Id" />
+                <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+                <ScalarProperty Name="C_Length" ColumnName="C_Length" />
+                <ScalarProperty Name="Cat_Id" ColumnName="Cat_Id" />
+                <ScalarProperty Name="Ch_Id" ColumnName="Ch_Id" />
+                <ScalarProperty Name="Inst_Id" ColumnName="Inst_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetCourseName" FunctionName="SelfLearningSystemsModel.Store.spGetCourseName" />
+          <FunctionImportMapping FunctionImportName="spGetCourses" FunctionName="SelfLearningSystemsModel.Store.spGetCourses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SelfLearningSystemsModel.spGetCourses_Result">
+                <ScalarProperty Name="C_Id" ColumnName="C_Id" />
+                <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+                <ScalarProperty Name="C_Length" ColumnName="C_Length" />
+                <ScalarProperty Name="Cat_Id" ColumnName="Cat_Id" />
+                <ScalarProperty Name="Ch_Id" ColumnName="Ch_Id" />
+                <ScalarProperty Name="Inst_Id" ColumnName="Inst_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
